@@ -1,0 +1,13 @@
+* text=auto
+*.js text eol=lf
+*.mjs text eol=lf
+*.css text eol=lf
+*.html text eol=lf
+*.json text eol=lf
+*.jsonc text eol=lf
+*.md text eol=lf
+*.py text eol=lf
+
+# Vendored compiler/interpreter bytes are required assets, but not useful diffs.
+public/cpp-runtime-*.js -diff
+public/python-runtime.js -diff

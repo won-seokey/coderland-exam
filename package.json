@@ -1,0 +1,13 @@
+{
+  "name": "coderland-exam",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Python and C++ programming exercises with browser-based grading",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node scripts/serve.mjs",
+    "check": "node scripts/check.mjs",
+    "package": "python scripts/package_site.py",
+    "deploy": "npx wrangler@4 deploy"
+  }
+}
