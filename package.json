@@ -3,11 +3,17 @@
   "version": "1.0.0",
   "private": true,
   "description": "Python and C++ programming exercises with browser-based grading",
-  "engines": { "node": ">=22" },
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "node scripts/serve.mjs",
     "check": "node scripts/check.mjs",
     "package": "python scripts/package_site.py",
-    "deploy": "npx wrangler@4 deploy"
+    "deploy": "wrangler deploy",
+    "build": "npm run check"
+  },
+  "devDependencies": {
+    "wrangler": "4.162.0"
   }
 }

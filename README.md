@@ -16,9 +16,10 @@ wrangler.jsonc   기존 Cloudflare Worker 배포 설정
 
 ## 로컬 개발
 
-Node.js 22 이상이면 추가 패키지 설치 없이 실행할 수 있습니다.
+Node.js 22.12 이상을 사용합니다. 처음 clone한 뒤 `npm ci`로 고정된 개발·배포 도구를 설치합니다. 로컬 서버 자체는 외부 패키지 없이 실행합니다.
 
 ```sh
+npm ci
 npm run dev
 ```
 
@@ -45,14 +46,30 @@ npm run check
 
 `wrangler.jsonc`는 기존 주소 `patient-glitter-8453.wonseokey.workers.dev`의 Worker 이름과 `public/` 정적 파일 폴더를 설정했습니다. 실제 배포 대상이 다른 경우 `name`을 해당 Worker 이름에 맞춰 수정하세요. 계정 ID와 인증 토큰은 저장소에 넣지 않습니다.
 
-Cloudflare 계정으로 로그인한 환경에서 다음 명령으로 배포할 수 있습니다. 실행 시 Wrangler 4를 가져옵니다.
+자동 배포는 **기존 Worker → Settings → Builds → Connect**에서 `won-seokey/coderland-exam`을 한 번 연결합니다.
+
+| 설정 | 값 |
+|---|---|
+| Production branch | `main` |
+| Root directory | `/` (저장소 최상위) |
+| Build command | `npm run build` |
+| Deploy command | `npm run deploy` |
+| Assets directory | `public` (Wrangler 설정에 포함) |
+
+이후 `main` push마다 문제·실행 파일 검사 후 기존 Worker에 배포합니다. 계정 소유자의 GitHub 접근 허용과 연결 저장이 완료되어야 작동합니다. [연결 방법·검증 절차](docs/cloudflare-auto-deploy.md)에 설정 화면의 입력값을 정리했습니다.
+
+로컬에서 수동 배포하거나 구성을 검사할 때:
 
 ```sh
-npx wrangler@4 login
+npm ci
+npm run build
+npm run deploy -- --dry-run
+# 실제 수동 배포가 필요할 때만:
+npx wrangler login
 npm run deploy
 ```
 
-Git 연동을 사용할 경우 Cloudflare에서 이 GitHub 저장소를 연결하고 프로젝트 루트를 저장소 루트로 지정합니다. 별도 빌드는 필요 없으며, 배포 명령은 `npx wrangler@4 deploy`, 정적 파일 경로는 `public`입니다. 이 저장소를 clone하거나 파일을 옮기는 것만으로 GitHub 업로드·실제 배포·자동 배포 연결이 수행되지는 않습니다.
+Wrangler는 `package.json`에 정확한 버전으로 고정하고 `package-lock.json`으로 관리합니다. `npm run build`는 정적 사이트의 파일·문제 데이터 검사이며 별도의 번들 생성은 없습니다.
 
 공식 설정 참고: [Workers 정적 파일 설정](https://developers.cloudflare.com/workers/static-assets/binding/), [Wrangler 설정](https://developers.cloudflare.com/workers/wrangler/configuration/).
 
