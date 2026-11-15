@@ -13,7 +13,7 @@ for (const name of filenames) {
   if (name.endsWith('.js')) new vm.Script(await readFile(path.join(root, name), 'utf8'), { filename: name });
 }
 const html = await readFile(path.join(root, 'index.html'), 'utf8');
-for (const [, reference] of html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css)(?:\?[^"]*)?)"/g)) {
+for (const [, reference] of html.matchAll(/(?:src|href)="([^"#]+\.(?:js|css|svg|png|ico|webmanifest)(?:\?[^"]*)?)"/g)) {
   await access(path.join(root, reference.split('?')[0]));
 }
 const context = vm.createContext({ window: {} });
@@ -44,4 +44,8 @@ for (const language of ['PYTHON', 'CPP']) {
 for (const name of context.window.CPP_RUNTIME.files) await access(path.join(root, name));
 await access(path.join(root, 'python-runtime.js'));
 for (const name of ['cpp-runtime.LICENSE.txt', 'python-runtime.LICENSE.txt']) await access(path.join(root, name));
+
+
+const manifest = JSON.parse(await readFile(path.join(root, 'site.webmanifest'), 'utf8'));
+for (const icon of manifest.icons) await access(path.join(root, icon.src));
 console.log(`Checked ${filenames.length} assets, JavaScript syntax, 130 problems and ${total} grading cases.`);

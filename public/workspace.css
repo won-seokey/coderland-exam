@@ -23,3 +23,5 @@ html{scroll-behavior:auto;scroll-padding-top:0}body{font-size:14px;line-height:1
 @media(max-width:900px){.brand-divider{display:none}}
 
 .code-editor-shell #code-editor{color:#d9e3f5;-webkit-text-fill-color:#d9e3f5}.code-highlight{display:none}.editor-enhanced #code-editor{color:transparent;-webkit-text-fill-color:transparent}.editor-enhanced>.code-highlight{display:block}
+
+.brand-icon img{display:block;width:100%;height:100%;border-radius:inherit}

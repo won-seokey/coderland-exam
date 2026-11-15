@@ -39,6 +39,7 @@ npm run check
 - C++ 문제·정답 예시: `public/cpp-problems.js`
 - 테스트 입력·기대 출력: `public/judge-cases.js`, `cpp-judge-cases.js`
 - 채점 실행: `public/assessment-runner.js`, `judge.js`, `cpp-judge.js`
+- 사이트 아이콘: `public/favicon.svg` 원본, PNG·ICO·`site.webmanifest`
 
 현재 폴더에 남아 있던 실행 소스와 생성된 문제 데이터를 이전했습니다. 이전 별도 문제 생성기·검증 스크립트는 이 저장소에 포함되어 있지 않습니다. 문제를 수정할 때 입력·출력·예제·해설·테스트를 함께 맞추고, 의미가 바뀌면 해당 문제의 `caseVersion`을 갱신하세요. 기존 문제 ID와 브라우저 저장 키를 임의로 바꾸면 학생 풀이 기록에 영향을 줄 수 있습니다.
 
@@ -86,3 +87,7 @@ npm run package
 [사이트 사용 안내](docs/프로그래밍_실력테스트_사용안내.md)
 
 Python·C++ 런타임의 원저작권과 라이선스는 `public/*runtime.LICENSE.txt`에 있습니다.
+
+## 아이콘 수정
+
+`public/favicon.svg`를 수정하고 `python scripts/generate-icons.py`로 탭·홈 화면용 PNG와 ICO를 갱신합니다. 생성 스크립트에만 Playwright·Pillow와 Microsoft Edge가 필요합니다. 생성된 아이콘 파일을 Git에 함께 포함하며 Cloudflare 빌드는 이 도구 없이 동작합니다.
