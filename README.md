@@ -45,7 +45,7 @@ npm run check
 
 ## Cloudflare 배포
 
-`wrangler.jsonc`는 기존 주소 `patient-glitter-8453.wonseokey.workers.dev`의 Worker 이름과 `public/` 정적 파일 폴더를 설정했습니다. 실제 배포 대상이 다른 경우 `name`을 해당 Worker 이름에 맞춰 수정하세요. 계정 ID와 인증 토큰은 저장소에 넣지 않습니다.
+`wrangler.jsonc`는 기존 주소 `coderland-python.wonseokey.workers.dev`의 Worker 이름과 `public/` 정적 파일 폴더를 설정했습니다. 실제 배포 대상이 다른 경우 `name`을 해당 Worker 이름에 맞춰 수정하세요. 계정 ID와 인증 토큰은 저장소에 넣지 않습니다.
 
 자동 배포는 **기존 Worker → Settings → Builds → Connect**에서 `won-seokey/coderland-exam`을 한 번 연결합니다.
 

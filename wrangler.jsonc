@@ -1,6 +1,6 @@
 {
   // Preserve the Worker used by the existing workers.dev URL.
-  "name": "patient-glitter-8453",
+  "name": "coderland-python",
   "compatibility_date": "2026-11-13",
   "assets": {
     "directory": "./public"

@@ -2,15 +2,15 @@
 
 대상 저장소: `won-seokey/coderland-exam`
 배포 브랜치: `main`
-기존 Worker: `patient-glitter-8453`
-사이트: https://patient-glitter-8453.wonseokey.workers.dev/
+기존 Worker: `coderland-python`
+사이트: https://coderland-python.wonseokey.workers.dev/
 
 저장소에는 Wrangler 버전과 의존성 잠금 파일, Node 버전, 정적 파일 위치, 검사·배포 명령이 준비되어 있습니다. **Cloudflare의 GitHub 접근 허용과 Worker의 저장소 연결은 계정 소유자가 대시보드에서 한 번 설정해야 합니다. 파일을 push한 것만으로 이 연결이 생성되지는 않습니다.**
 
 ## 한 번만 설정
 
 1. [Cloudflare 대시보드](https://dash.cloudflare.com/)에 로그인합니다.
-2. **Workers & Pages → 기존 `patient-glitter-8453` Worker**를 선택합니다.
+2. **Workers & Pages → 기존 `coderland-python` Worker**를 선택합니다.
 3. **Settings → Builds**(UI에 따라 Build)에서 **Connect**를 누릅니다.
 4. GitHub 계정을 연결하고 Cloudflare GitHub 앱이 `won-seokey/coderland-exam`에 접근하도록 허용합니다. 저장소가 목록에 없으면 앱의 저장소 접근 목록에 추가합니다.
 5. 다음 값으로 연결을 저장합니다.
